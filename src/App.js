@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Search from './components/Search';
+import Results from './components/Results';
 
 class App extends Component {
   state = {
@@ -25,6 +26,7 @@ class App extends Component {
           <p className="lead text-center">Search Images</p>
           <Search handleSearch={this.handleSearch} />
         </div>
+        <Results images={this.state.images} />
       </div>
     );
   }
