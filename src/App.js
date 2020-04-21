@@ -4,10 +4,18 @@ import Search from './components/Search';
 class App extends Component {
   state = {
     search: '',
+    images: [],
+  };
+
+  consultAPI = () => {
+    const url = `https://pixabay.com/api/?key=1732750-d45b5378879d1e877cd1d35a6&q=${this.state.search}`;
+    fetch(url)
+      .then((resp) => resp.json())
+      .then((data) => this.setState({ images: data.hits }));
   };
 
   handleSearch = (search) => {
-    this.setState({ search });
+    this.setState({ search }, () => this.consultAPI());
   };
 
   render() {
