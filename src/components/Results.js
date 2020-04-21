@@ -7,7 +7,7 @@ class Results extends Component {
     const images = this.props.images;
 
     if (images.length) {
-      console.log(images);
+      //console.log(images);
 
       return (
         <React.Fragment>
