@@ -8,6 +8,14 @@ class App extends Component {
     images: [],
   };
 
+  prevPage = () => {
+    console.log('prev...');
+  };
+
+  nextPage = () => {
+    console.log('next...');
+  };
+
   consultAPI = () => {
     const url = `https://pixabay.com/api/?key=1732750-d45b5378879d1e877cd1d35a6&q=${this.state.search}`;
     fetch(url)
@@ -26,7 +34,13 @@ class App extends Component {
           <p className="lead text-center">Search Images</p>
           <Search handleSearch={this.handleSearch} />
         </div>
-        <Results images={this.state.images} />
+        <div className="row justify-content-center">
+          <Results
+            images={this.state.images}
+            prevPage={this.prevPage}
+            nextPage={this.nextPage}
+          />
+        </div>
       </div>
     );
   }
